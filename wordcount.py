@@ -1,8 +1,11 @@
 # put your code here.
+def formatting(word_count_dict):
+    for word in word_count_dict.items():
+        print "{} {}".format(word[0], word[1])
 
-words = {}
+def word_count(file_name):
+    words = {}
 
-def word_counter(file_name):
     text_file = open(file_name)
 
     for line in text_file:
@@ -13,9 +16,6 @@ def word_counter(file_name):
             count = words.get(word, 0) + 1
             words[word] = count
 
-        for item in words.items():
-            return item
+    return formatting(words)
 
-word_counts = word_counter("test.txt")
-
-print word_counts
+word_count("test.txt")
